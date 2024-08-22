@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <h3>Login Page</h3>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group mb-3 mt-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email"  placeholder="Enter email" name="email" formcontrolname="email">
+          </div>
+          <div class=" form-group mb-3">
+            <label for="username" class="form-label">User Name:</label>
+            <!-- <input type="text" class="form-control" id="username" placeholder="Enter password" name="username" formcontrolname="username" 
+              [ngClass]="{'is-invalid':submitted && f['username'].errors}" > -->
+
+              <input type="text" class="form-control" id="username" placeholder="Enter password" name="username" formcontrolname="username" 
+              [ngClass]="{'is-invalid':submitted && f['username'].errors}" >
+              <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+                <div *ngIf="f['username'].errors['required']">Username is required</div>
+                <div *ngIf="f['username'].errors['minLength']">
+                  Username must be at least 6 characters
+                </div>
+                <div *ngIf="f['username'].errors['maxLength']">
+                  Username must not exceed 20 characters
+                </div>
+              </div>
+          </div>
+  
+          <!-- </div> -->
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+
+<!-- <div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <h3>Login Page</h3>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group mb-3 mt-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" formControlName="email">
+          </div>
+          <div class="form-group mb-3">
+            <label for="username" class="form-label">User Name:</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" formControlName="username" 
+              [ngClass]="{'is-invalid': submitted && f['username'].errors}" >
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet> -->
